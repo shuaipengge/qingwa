@@ -4,6 +4,8 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  // 允许跨域
+  app.enableCors()
 
   // 接口文档
   const options = new DocumentBuilder()
