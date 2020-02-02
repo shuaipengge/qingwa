@@ -8,6 +8,7 @@
       @row-update="update"
       @row-del="remove"
       @on-load="changePage"
+      @sort-change="changeSort"
     ></avue-crud>
   </div>
 </template>
@@ -37,6 +38,17 @@ export default class CourseList extends Vue {
   async changePage({ pageSize, currentPage }) {
     this.query.page = currentPage;
     this.query.limit = pageSize;
+    this.fetch();
+  }
+
+  async changeSort({ prop, order }) {
+    if (!order) {
+      this.query.sort = null;
+    } else {
+      this.query.sort = {
+        [prop]: order === "ascending" ? 1 : -1
+      };
+    }
     this.fetch();
   }
 

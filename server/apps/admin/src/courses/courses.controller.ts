@@ -20,7 +20,7 @@ export class CoursesController {
         return {
             title: "课程管理",
             column: [
-                { prop: "name", label: "课程名称" },
+                { prop: "name", label: "课程名称", sortable: true },
                 { prop: "cover", label: "课程封面图" }
             ]
         }
