@@ -9,6 +9,7 @@
       @row-del="remove"
       @on-load="changePage"
       @sort-change="changeSort"
+      @search-change="search"
     ></avue-crud>
   </div>
 </template>
@@ -50,6 +51,19 @@ export default class CourseList extends Vue {
       };
     }
     this.fetch();
+  }
+
+  async search(where, done) {
+    for (let k in where) {
+      const field = this.option.column.find(v => v.prop === k);
+      if (field.regex) {
+        where[k] = { $regex: where[k] };
+      }
+    }
+    // where.name = { $regex: where.name };
+    this.query.where = where;
+    this.fetch();
+    done();
   }
 
   async fetch() {
