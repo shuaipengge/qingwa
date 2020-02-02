@@ -19,7 +19,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component({})
 export default class CourseList extends Vue {
-  @Prop(String) resource: string;
+  @Prop(String) resource!: string;
   data = {};
   option = {};
   page: any = {
@@ -55,7 +55,7 @@ export default class CourseList extends Vue {
 
   async search(where, done) {
     for (let k in where) {
-      const field = this.option.column.find(v => v.prop === k);
+      const field = this.option['column'].find(v => v.prop === k);
       if (field.regex) {
         where[k] = { $regex: where[k] };
       }
