@@ -14,11 +14,16 @@ const models = TypegooseModule.forFeature([
 @Global()  //标记为全局模块
 @Module({
   imports: [
-    TypegooseModule.forRoot('mongodb://localhost/qingwa', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false
+    TypegooseModule.forRootAsync({ // 异步加载
+      useFactory() {
+        return {
+          uri: process.env.DB,
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+          useCreateIndex: true,
+          useFindAndModify: false
+        }
+      }
     }),
     models
   ],

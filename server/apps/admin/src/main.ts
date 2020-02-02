@@ -8,9 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   // 允许跨域
   app.enableCors()
-  app.useStaticAssets('uploads', {
-    prefix: '/uploads'
-  })
+
   // 接口文档
   const options = new DocumentBuilder()
     .setTitle('🐸青蛙视频-后台管理API')
@@ -19,8 +17,9 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api-docs', app, document);
-
-  await app.listen(3000);
-  console.log('http://localhost:3000/')
+  
+  const PORT = process.env.ADMIN_PORT || 3000
+  await app.listen(PORT);
+  console.log(`http://localhost:${PORT}/`)
 }
 bootstrap();
