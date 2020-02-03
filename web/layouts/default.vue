@@ -81,6 +81,7 @@ export default {
   data: () => ({
     drawer: null,
     items: [
+      { icon: 'home', text: '首页', link: '/' },
       { icon: 'trending_up', text: '热门课程', link: '/courses' },
       { icon: 'subscriptions', text: '热门评论', link: '/comments' }
     ],
