@@ -9,8 +9,8 @@ async function bootstrap() {
 
   // 接口文档
   const options = new DocumentBuilder()
-    .setTitle('🐸青蛙视频-后台管理API')
-    .setDescription('供后台管理界面调用的服务端API')
+    .setTitle('🐸青蛙视频-用户WEB端API')
+    .setDescription('供用户WEB端界面调用的服务端API')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, options);
