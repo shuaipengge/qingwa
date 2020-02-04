@@ -1,16 +1,11 @@
-import { Controller, Post, Body, Get } from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards, Req } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiProperty } from '@nestjs/swagger';
 import { InjectModel } from 'nestjs-typegoose';
 import { User } from '@libs/db/models/user.model';
 import { ReturnModelType } from '@typegoose/typegoose';
-
-// 定义注册的数据传输对象
-export class RegisterDto {
-    @ApiProperty()
-    username: string
-    @ApiProperty()
-    password: string
-}
+import { AuthGuard } from '@nestjs/passport'
+import { LoginDto } from './dto/login.dto';
+import { RegisterDto } from './dto/register.dto';
 
 @Controller('auth')
 @ApiTags('用户')
@@ -33,9 +28,10 @@ export class AuthController {
 
     @Post('login')
     @ApiOperation({ summary: '登录' })
-    async login(@Body() dto) {
-        
-        return dto
+    @UseGuards(AuthGuard('local'))
+    async login(@Body() dto: LoginDto, @Req() req) {
+
+        return req.user
     }
 
     @Get('user')
