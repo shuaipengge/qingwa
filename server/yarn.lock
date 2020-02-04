@@ -418,6 +418,14 @@
     tslib "1.10.0"
     uuid "3.4.0"
 
+"@nestjs/jwt@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.npm.taobao.org/@nestjs/jwt/download/@nestjs/jwt-6.1.1.tgz#78883321fc8663a7cf32aa725a70adc8454bbf5d"
+  integrity sha1-eIgzIfyGY6fPMqpyWnCtyEVLv10=
+  dependencies:
+    "@types/jsonwebtoken" "7.2.8"
+    jsonwebtoken "8.4.0"
+
 "@nestjs/passport@^6.1.1":
   version "6.1.1"
   resolved "https://registry.npm.taobao.org/@nestjs/passport/download/@nestjs/passport-6.1.1.tgz#991b8736c0ebffabb85a6455f0288055e5b52755"
@@ -633,6 +641,13 @@
   version "8.3.7"
   resolved "https://registry.npm.taobao.org/@types/jsonwebtoken/download/@types/jsonwebtoken-8.3.7.tgz#ab79ad55b9435834d24cca3112f42c08eedb1a54"
   integrity sha1-q3mtVblDWDTSTMoxEvQsCO7bGlQ=
+  dependencies:
+    "@types/node" "*"
+
+"@types/jsonwebtoken@7.2.8":
+  version "7.2.8"
+  resolved "https://registry.npm.taobao.org/@types/jsonwebtoken/download/@types/jsonwebtoken-7.2.8.tgz#8d199dab4ddb5bba3234f8311b804d2027af2b3a"
+  integrity sha1-jRmdq03bW7oyNPgxG4BNICevKzo=
   dependencies:
     "@types/node" "*"
 
@@ -4394,6 +4409,21 @@ jsonfile@^4.0.0:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+jsonwebtoken@8.4.0:
+  version "8.4.0"
+  resolved "https://registry.npm.taobao.org/jsonwebtoken/download/jsonwebtoken-8.4.0.tgz#8757f7b4cb7440d86d5e2f3becefa70536c8e46a"
+  integrity sha1-h1f3tMt0QNhtXi877O+nBTbI5Go=
+  dependencies:
+    jws "^3.1.5"
+    lodash.includes "^4.3.0"
+    lodash.isboolean "^3.0.3"
+    lodash.isinteger "^4.0.4"
+    lodash.isnumber "^3.0.3"
+    lodash.isplainobject "^4.0.6"
+    lodash.isstring "^4.0.1"
+    lodash.once "^4.0.0"
+    ms "^2.1.1"
+
 jsonwebtoken@^8.2.0:
   version "8.5.1"
   resolved "https://registry.npm.taobao.org/jsonwebtoken/download/jsonwebtoken-8.5.1.tgz#00e71e0b8df54c2121a1f26137df2280673bcc0d"
@@ -4434,7 +4464,7 @@ jwa@^1.4.1:
     ecdsa-sig-formatter "1.0.11"
     safe-buffer "^5.0.1"
 
-jws@^3.2.2:
+jws@^3.1.5, jws@^3.2.2:
   version "3.2.2"
   resolved "https://registry.npm.taobao.org/jws/download/jws-3.2.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjws%2Fdownload%2Fjws-3.2.2.tgz#001099f3639468c9414000e99995fa52fb478304"
   integrity sha1-ABCZ82OUaMlBQADpmZX6UvtHgwQ=

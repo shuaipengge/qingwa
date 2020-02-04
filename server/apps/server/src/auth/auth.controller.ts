@@ -6,12 +6,14 @@ import { ReturnModelType } from '@typegoose/typegoose';
 import { AuthGuard } from '@nestjs/passport'
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
+import { JwtService } from '@nestjs/jwt'
 
 @Controller('auth')
 @ApiTags('用户')
 export class AuthController {
 
     constructor(
+        private jwtService: JwtService,
         @InjectModel(User) private userModel: ReturnModelType<typeof User>
     ) { }
 
@@ -31,7 +33,9 @@ export class AuthController {
     @UseGuards(AuthGuard('local'))
     async login(@Body() dto: LoginDto, @Req() req) {
 
-        return req.user
+        return {
+            token: this.jwtService.sign(String(req.user._id))
+        }
     }
 
     @Get('user')
