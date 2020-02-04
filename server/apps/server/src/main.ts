@@ -12,6 +12,7 @@ async function bootstrap() {
     .setTitle('🐸青蛙视频-用户WEB端API')
     .setDescription('供用户WEB端界面调用的服务端API')
     .setVersion('1.0')
+    .addBearerAuth() //启用 Bearer token功能
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api-docs', app, document);
